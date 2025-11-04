@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя перша гра - jQuery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Моя перша гра</h1>
+
+        <div class="start-screen">
+            <button id="startButton">Почати гру</button>
+        </div>
+
+        <div class="game-screen" style="display: none;">
+            <div class="game-info">
+                <div id="timer">Час: 60 с.</div>
+                <div id="timeLeft">Залишилось: 60</div>
+            </div>
+
+            <div id="gameBoard"></div>
+
+            <button id="restartButton">Почати з початку</button>
+
+            <div class="stats">
+                <h3>Статистика спроб</h3>
+                <table id="statsTable">
+                    <thead>
+                        <tr>
+                            <th>Назва гри</th>
+                            <th>Час</th>
+                        </tr>
+                    </thead>
+                    <tbody id="statsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="win-screen" style="display: none;">
+            <h2>Вітаємо!</h2>
+            <p>Ви успішно завершили гру!</p>
+            <p>Ваш час: <span id="finalTime"></span> секунд</p>
+            <button id="playAgainButton">Грати ще раз</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

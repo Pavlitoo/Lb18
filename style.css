@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+h2 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.start-screen {
+    text-align: center;
+    padding: 40px 0;
+}
+
+#startButton, #restartButton, #playAgainButton {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+#startButton:hover, #restartButton:hover, #playAgainButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+#startButton:active, #restartButton:active, #playAgainButton:active {
+    transform: translateY(-1px);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cell.clicked {
+    background: #e0e0e0;
+    border-color: #999;
+    cursor: not-allowed;
+    transform: scale(0.95);
+}
+
+.cell.correct {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    border-color: #4CAF50;
+    animation: correctPulse 0.5s;
+}
+
+.cell.wrong {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    color: white;
+    border-color: #f44336;
+    animation: shake 0.5s;
+}
+
+@keyframes correctPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+#restartButton {
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.stats {
+    margin-top: 30px;
+}
+
+.stats h3 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+#statsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#statsTable thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+#statsTable th, #statsTable td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#statsTable tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+#statsTable tbody tr:hover {
+    background: #f0f0f0;
+}
+
+#statsTable tbody tr.best-score {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    font-weight: bold;
+}
+
+.win-screen {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.win-screen p {
+    font-size: 1.3rem;
+    margin: 15px 0;
+    color: #555;
+}
+
+#finalTime {
+    color: #667eea;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #gameBoard {
+        gap: 8px;
+        padding: 15px;
+    }
+
+    .cell {
+        font-size: 1.5rem;
+    }
+
+    #startButton, #restartButton, #playAgainButton {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+    }
+}
